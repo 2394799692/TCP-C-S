@@ -1,0 +1,7 @@
+开发日志
+1.创建监听socket listener:=net.Listen("TCP","IP+port")  IP+PORT——服务器自己的IP和port
+2.启动监听 conn:=listener.Accept{} conn 用于通信的socket
+3.conn.Read
+4.处理使用 数据
+5.conn.Write()
+6.关闭 listener,conn

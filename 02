@@ -1,0 +1,4 @@
+1.conn,err:=net.dial("tcp",服务器的ip+port)
+2.写数据给服务器conn.write()
+3.读取服务器回发的数据 conn.read()
+4.conn.close()

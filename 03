@@ -1,0 +1,14 @@
+1.创建 监听套接字 listener:=net.listen("tcp",服务器的IP+PORT)  注意：tcp不能大写
+2.defer listenerclose() 关闭
+3.for 循环阻塞监听客户端连接事件 conn:=listener.Accept()
+4.创建go程 对应每一个客户端进行数据通信  go HandlerConnet()
+5.实现HandlerConnet
+1）defer conn.close()
+2)获取成功连接的客户端地址  conn.remoteaddr()
+3)for循环读取客户端发送数据 conn.read(buf)
+4)处理数据：小写转为大写    strings.toupper()
+5)回写转化后的数据         conn.write(buf[:n])
+
+服务器判断关闭：
+read读客户端，返回0——对端关闭
+nc命令发送数据时，默认在结尾自带“\n”
